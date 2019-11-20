@@ -1,19 +1,25 @@
 .App {
-  background: #346333;
+  width: 100vw;
+  height: 100vh;
+  
   color:#666;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  width: 100vw;
-  height: 100vh;
+
+  background: #ffefe2;
 }
 
 .pageHeader{
-  background: #D2F777;
-}
-.pageHeader__item{
-  color: #666;
-  padding: 20px;
-  text-decoration: none;
-  font-weight: 300;
-  font-size: 1,5rem;
+  margin-bottom: 20px;
+
+  background: #c8e2c4;
+
+  &__item{
+    padding: 20px;
+
+    color: #666;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1,5rem;
+  }
 }

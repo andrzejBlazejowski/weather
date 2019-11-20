@@ -4,7 +4,10 @@ import SearchForWeatherResults from './SearchForWeatherResults/SearchForWeatherR
 
 function SearchForWeather() {
   return (<>
-    <input type="text" placeholder="type in city name"/>
+    <input 
+      type="text" 
+      className="SearchForWeather__input"
+      placeholder="type in city name" />
     <SearchForWeatherResults/>
   </>);
 }
