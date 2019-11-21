@@ -1,15 +1,29 @@
 import React from 'react';
 import './SearchForWeather.scss';
 import SearchForWeatherResults from './SearchForWeatherResults/SearchForWeatherResults';
+import {connect} from 'react-redux';
 
-function SearchForWeather() {
+function SearchForWeather(props) {
   return (<>
     <input 
       type="text" 
+      onChange={props.onSearchTextChange}
+      value={props.searchText}
       className="SearchForWeather__input"
       placeholder="type in city name" />
     <SearchForWeatherResults/>
   </>);
 }
 
-export default SearchForWeather;
+const mapStateToProps = state =>{
+  return {
+    searchText: state.searchLocation
+  };
+}
+const mapDispatchToProps = dispatch => {
+  return {
+      onSearchTextChange: (event) => dispatch({type: 'UPDATE_SEARCH_LOCATION',value:event.target.value})
+  };
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(SearchForWeather);

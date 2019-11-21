@@ -10,7 +10,6 @@ import './App.scss';
 import SearchForWeather from './SearchForWeather/SearchForWeather';
 import CurrentWeather from './CurrentWeather/CurrentWeather';
 import LongTermWeather from './LongTermWeather/LongTermWeather';
-import {Provider} from 'react-redux';
 
 function App() {
   return (
