@@ -5,10 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import WebFont from 'webfontloader';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import rootReducer from './store/reducer';
-
-const store = createStore(rootReducer);
+import store from './store/store';
 
 WebFont.load({
   google: {
