@@ -1,0 +1,26 @@
+- set up redux actions
+- set up redux reducers
+- set up redux store
+- use redux in components
+- get user location
+- include aiox
+- include recharts
+- fetch data from geocoding
+- fetch data from weather api
+- BEM classes
+- BEM styling
+
+
+
+
+v2:
+
+
+separate list of current weather (render from state),
+add acctions in reducer for current weather
+create dispatching in current weather component
+use effect in current weather component to obtain weather (call for it)
+create actiongenerators
+use action generators
+add onchange action in search input
+add dispaching in search component
