@@ -2,7 +2,6 @@ import * as actions from './actions/actions';
 
 const initialState = {
   searchLocation: '',
-  searchLocationsResult:[],
   userLocation: {
     isGetLocationSuccess: null,
     lat: null,
@@ -23,18 +22,12 @@ const initialState = {
 }
 
 const rootReducer = (state = initialState, action) => {
+  console.log(action.type,action.payload);
   switch (action.type) {
     case actions.UPDATE_SEARCH_LOCATION:
       return {
         ...state,
-        searchLocation: action.value
-      }
-    case actions.UPDATE_USER_LOCATION:
-      return {
-        ...state,
-        address: {
-          ...state.userLocation.address,
-        },
+        searchLocation: action.value,
         userLocation: {
           ...state.userLocation,
           currentWeather: {
@@ -43,6 +36,25 @@ const rootReducer = (state = initialState, action) => {
           LongTermWeather: [
             ...state.userLocation.LongTermWeather
           ],
+          address: {
+            ...state.userLocation.address,
+          },
+        }
+      }
+    case actions.UPDATE_USER_LOCATION:
+      return {
+        ...state,
+        userLocation: {
+          ...state.userLocation,
+          currentWeather: {
+            ...state.userLocation.currentWeather,
+          },
+          LongTermWeather: [
+            ...state.userLocation.LongTermWeather
+          ],
+          address: {
+            ...state.userLocation.address,
+          },
           isGetLocationSuccess: action.payload.isGetLocationSuccess,
           lat: action.payload.lat,
           long: action.payload.long
@@ -52,25 +64,41 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         userLocation: {
+          ...state.userLocation,
           currentWeather: {
             ...state.userLocation.currentWeather,
             temperature: action.payload.temperature,
             locationName: action.payload.locationName
+          },
+          LongTermWeather: [
+            ...state.userLocation.LongTermWeather
+          ],
+          address: {
+            ...state.userLocation.address,
           }
         }
       }
     case actions.UPDATE_USER_ADDRESS:
-      console.log(action.payload);
       return {
         ...state,
         userLocation: {
+          ...state.userLocation,
           address: {
             ...state.userLocation.address,
             street: action.payload.street,
             city: action.payload.city,
             state: action.payload.state,
             country: action.payload.country
-          }
+          },
+          currentWeather: {
+            ...state.userLocation.currentWeather,
+            temperature: action.payload.temperature,
+            locationName: action.payload.locationName
+          },
+          LongTermWeather: [
+            ...state.userLocation.LongTermWeather
+          ],
+          isAddress: true
         },
         isAddress: true
       }
@@ -78,8 +106,15 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         userLocation: {
+          ...state.userLocation,
+          currentWeather: {
+            ...state.userLocation.currentWeather,
+          },
+          address: {
+            ...state.userLocation.address,
+          },
           LongTermWeather: [
-            action.payload
+            ...action.payload
           ]
         }
       }

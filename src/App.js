@@ -7,9 +7,9 @@ import {
   Redirect
 } from "react-router-dom";
 import './App.scss';
-import SearchForWeather from './SearchForWeather/SearchForWeather';
-import CurrentWeather from './CurrentWeather/CurrentWeather';
-import LongTermWeather from './LongTermWeather/LongTermWeather';
+import SearchForWeather from './components/SearchForWeather/SearchForWeather';
+import CurrentWeather from './components/CurrentWeather/CurrentWeather';
+import LongTermWeather from './components/LongTermWeather/LongTermWeather';
 
 function App() {
   return (
